@@ -34,13 +34,17 @@ public class HibernateUtil {
 //}
 public static EntityManager getEM(){
     try {
+        System.out.println("What is this static EntityManager getEM()????????? ");
         emf = Persistence.createEntityManagerFactory("Menu");
+        System.out.println("What is this emf????????? "+ emf);
+
     } catch (Exception e) {
         e.printStackTrace();
     }
     System.out.println("2");
     try {
         em = emf.createEntityManager();
+        System.out.println("What is this em????????? "+ em);
     } catch (Exception e) {
         e.printStackTrace();
     }

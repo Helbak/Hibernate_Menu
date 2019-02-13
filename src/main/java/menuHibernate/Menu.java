@@ -29,6 +29,7 @@ private Menu dish;
     public void addDish(Menu dish){
         dish= this;
         em=HibernateUtil.getEM();
+        System.out.println(" (MENU) What is this em????????? "+ em);
         try {
 em.getTransaction().begin();
             em.persist(dish);
@@ -39,6 +40,7 @@ em.getTransaction().begin();
     }
     public void getDish(){
         em=HibernateUtil.getEM();
+        System.out.println("What is this em????????? "+ em);
        Menu d= em.find(Menu.class,1L);
         System.out.println(d);
     }
