@@ -17,8 +17,22 @@ public class HibernateUtil {
 
     public HibernateUtil() {
     }
-public void getEntity() {
-    System.out.println("1");
+//public void getEntity() {
+//    System.out.println("1");
+//    try {
+//        emf = Persistence.createEntityManagerFactory("Menu");
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+//    System.out.println("2");
+//    try {
+//        em = emf.createEntityManager();
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+//
+//}
+public static EntityManager getEM(){
     try {
         emf = Persistence.createEntityManagerFactory("Menu");
     } catch (Exception e) {
@@ -31,8 +45,9 @@ public void getEntity() {
         e.printStackTrace();
     }
 
-}
-public static EntityManager getEM(){
+
+
+
         return em;
 }
     public void closeEntity(){

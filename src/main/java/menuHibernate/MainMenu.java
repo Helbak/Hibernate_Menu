@@ -10,7 +10,7 @@ public class MainMenu {
     public static void main(String[] args) {
         HiberSet hs = new HiberSet();
         HibernateUtil hut = new HibernateUtil();
-        hut.getEntity();
+//        hut.getEntity();
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Enter 1 to add new dish to the menu");

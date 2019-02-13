@@ -39,7 +39,7 @@ em.getTransaction().begin();
     }
     public void getDish(){
         em=HibernateUtil.getEM();
-       Menu d= em.find(Menu.class,1);
+       Menu d= em.find(Menu.class,1L);
         System.out.println(d);
     }
     @Override
