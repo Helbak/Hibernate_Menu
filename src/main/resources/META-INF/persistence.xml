@@ -4,7 +4,7 @@
              version="2.0">
     <persistence-unit name="Menu">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>menuHibernate.HibernateUtil</class>
+        <class>menuHibernate.Menu</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_restoran"/>
