@@ -1,20 +1,19 @@
 package menuHibernate;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.util.Scanner;
 
 public class MainMenu {
 
 
     public static void main(String[] args) {
-        HiberSet hs = new HiberSet();
+        HiberSetGet hs = new HiberSetGet();
         HibernateUtil hut = new HibernateUtil();
 //        hut.getEntity();
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Enter 1 to add new dish to the menu");
             System.out.println("Enter 2 to order from menu");
+            System.out.println("===>");
             int c = sc.nextInt();
 
             if (c == 1) {
@@ -23,8 +22,8 @@ public class MainMenu {
             }
             if (c == 2) {
                 System.out.println("Method order from menu");
-                Menu m = new Menu();
-                m.getDish();
+               hs.getDish();
+
             }
             if (c != 1 && c != 2) {
                 hut.closeEntity();
