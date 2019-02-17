@@ -11,9 +11,11 @@ public class Order {
     private Double price;
     private Long weight;
     private Double discount;
+    private  Long sumWeight;
     List<Menu> menuList;
     List<Menu> orderList = new ArrayList<Menu>();
     private static EntityManager em;
+    private CalculatorWeight clc = new CalculatorWeight();
 
     public Order() {
 
@@ -35,7 +37,7 @@ public class Order {
 
     public List<Menu> requestClient (){
         while (true) {
-            Long sumWeight=null;
+
             Long weight;
             System.out.println("For order the dish enter id of dishes or enter 0 for finish order");
 
@@ -44,23 +46,24 @@ public class Order {
             if (choose > 0 && choose < menuList.size()) {
 
                 Menu m = menuList.get(choose);
-                System.out.println(m);
-
+                System.out.println("You chose " + m.getDishname()+" It's discount = "+m.getDiscount());
+if(m.getDiscount()>0){
                 orderList.add(m);
+                clc.addWeight(m.getWeight());
 
-                for (int i=0; i<orderList.size(); i++) {
-                    Menu n = orderList.get(i);
-                    weight = n.getWeight();
-                    String d = n.getDishname();
-                    System.out.println("Weight of " + d + " = "+ weight);
-                    sumWeight =  + weight;
-                    System.out.println("total weight of your order = "+sumWeight);
-                }
+    System.out.println(" ... and "+m.getDishname()+"   added to order. Total weight = "+clc.getSumWeight());
+}
+if (m.getDiscount()==0){
+    System.out.println(" ... and "+m.getDishname()+"  did not added to order");
+}
 
-//                    System.out.println("total weight of your order = ");
+
 
             }
             if (choose <= 0 || choose >= menuList.size()) {
+                System.out.println("You have finished order");
+                System.out.println("total weight of your order = "+clc.getSumWeight());
+//
 
                 return orderList;
             }
